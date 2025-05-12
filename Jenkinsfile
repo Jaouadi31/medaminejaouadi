@@ -15,8 +15,8 @@ pipeline {
         // Stage 1: Clone the project from GitHub
         stage('Clone Project') {
             steps {
-                git branch: 'main'
-                url: 'https://github.com/Jaouadi31/medaminejaouadi.git'  // Replace with your GitHub repository URL
+                git branch: 'main',
+                url: "https://github.com/Jaouadi31/medaminejaouadi.git",  // Replace with your GitHub repository URL
             }
         }
         stage('Entry 1') {
