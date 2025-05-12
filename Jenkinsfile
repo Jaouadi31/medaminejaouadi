@@ -1,27 +1,17 @@
 pipeline {
     agent any
 
-    /*environment {
+    environment {
         SONARQUBE = 'http://192.168.33.10:9000'  // Update the SonarQube server URL if needed
         SONAR_TOKEN = credentials('sonarqube-token')  // This is your secret SonarQube token
-    }*/
+    }
 
     stages {
-        stage('Entry 0') {
-            steps {
-                sh 'echo "Entry 1"'  // Replace with your GitHub repository URL
-            }
-        }
         // Stage 1: Clone the project from GitHub
         stage('Clone Project') {
             steps {
                 git branch: 'main',
-                url: "https://github.com/Jaouadi31/medaminejaouadi.git"  // Replace with your GitHub repository URL
-            }
-        }
-        stage('Entry 1') {
-            steps {
-                sh 'echo "Entry 1"'  // Replace with your GitHub repository URL
+                url: "https://github.com/Jaouadi31/medaminejaouadi.git",  // Replace with your GitHub repository URL
             }
         }
         // Stage 2: Build the project with Maven
@@ -30,7 +20,6 @@ pipeline {
                 script {
                     // Compile and build the project using Maven
                     sh 'mvn clean install'
-                    sh 'echo "test"'
                 }
             }
         }
