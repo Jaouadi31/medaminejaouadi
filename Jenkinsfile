@@ -28,7 +28,6 @@ pipeline {
         stage('Analyze with SonarQube') {
             steps {
                 script {
-                    sh 'echo "test"'
                     // Run SonarQube analysis with the authentication token
                     sh 'mvn sonar:sonar -Dsonar.host.url=${SONARQUBE} -Dsonar.login=${SONAR_TOKEN}'
                 }
@@ -40,7 +39,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image using the Dockerfile
-                    sh 'docker build -t springboot-app .'
+                    sh 'sudo docker build -t springboot-app .'
                 }
             }
         }
