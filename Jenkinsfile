@@ -10,7 +10,7 @@ pipeline {
         // Stage 1: Clone the project from GitHub
         stage('Clone Project') {
             steps {
-                git 'https://github.com/Jaouadi31/medaminejaouadi.git'  // Replace with your GitHub repository URL
+                git clone 'https://github.com/Jaouadi31/medaminejaouadi.git'  // Replace with your GitHub repository URL
             }
         }
 
