@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE = 'http://192.168.33.10:9000'  // SonarQube server URL
-        SONAR_TOKEN = 'sqa_b3e5b58a970eee8b48a6df703f097159426f111f'  // Your SonarQube token
+        SONARQUBE = 'http://192.168.33.10:9000'  // Update the SonarQube server URL if needed
+        SONAR_TOKEN = credentials('sonarqube-token')  // This is your secret SonarQube token
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
         stage('Analyze with SonarQube') {
             steps {
                 script {
-                    // Run SonarQube analysis with token for authentication
+                    // Run SonarQube analysis with the authentication token
                     sh 'mvn sonar:sonar -Dsonar.host.url=${SONARQUBE} -Dsonar.login=${SONAR_TOKEN}'
                 }
             }
