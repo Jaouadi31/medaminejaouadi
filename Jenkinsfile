@@ -20,6 +20,7 @@ pipeline {
                 script {
                     // Compile and build the project using Maven
                     sh 'mvn clean install'
+                    sh 'echo "test"'
                 }
             }
         }
@@ -28,6 +29,7 @@ pipeline {
         stage('Analyze with SonarQube') {
             steps {
                 script {
+                    sh 'echo "test"'
                     // Run SonarQube analysis with the authentication token
                     sh 'mvn sonar:sonar -Dsonar.host.url=${SONARQUBE} -Dsonar.login=${SONAR_TOKEN}'
                 }
