@@ -1,12 +1,17 @@
 pipeline {
     agent any
 
-    environment {
+    /*environment {
         SONARQUBE = 'http://192.168.33.10:9000'  // Update the SonarQube server URL if needed
         SONAR_TOKEN = credentials('sonarqube-token')  // This is your secret SonarQube token
-    }
+    }*/
 
     stages {
+        stage('Entry 0') {
+            steps {
+                sh 'echo "Entry 1"'  // Replace with your GitHub repository URL
+            }
+        }
         // Stage 1: Clone the project from GitHub
         stage('Clone Project') {
             steps {
