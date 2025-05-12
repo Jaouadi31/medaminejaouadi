@@ -11,7 +11,7 @@ pipeline {
         stage('Clone Project') {
             steps {
                 git branch: 'main',
-                url: "https://github.com/Jaouadi31/medaminejaouadi.git",  // Replace with your GitHub repository URL
+                url: "https://github.com/Jaouadi31/medaminejaouadi.git"  // Replace with your GitHub repository URL
             }
         }
         // Stage 2: Build the project with Maven
